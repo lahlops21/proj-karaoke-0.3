@@ -1,0 +1,66 @@
+<div class="container">
+  <!-- Link para área administrativa -->
+  <button (click)="router.navigate(['/admin/login'])" class="admin-link">Admin</button>
+
+  <!-- Área principal centralizada -->
+  <div class="conteudo-principal">
+    <!-- Logo/Título -->
+    <div class="logo-container">
+      <h1 class="logo-titulo">
+        <span class="letra roxo">Busca</span>
+        <span class="letra rosa">Karaokê</span>
+      </h1>
+      <p class="subtitulo">Encontre sua música</p>
+    </div>
+
+    <!-- Campo de busca -->
+    <div class="busca-container">
+      <div class="busca-wrapper">
+        <svg class="icone-busca" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        
+        <input 
+          type="search" 
+          class="campo-busca"
+          [(ngModel)]="termoBusca"
+          [placeholder]="placeholderAtual"
+          (keypress)="onKeyPress($event)"
+          autocomplete="off"
+          inputmode="search"
+        />
+      </div>
+
+      <!-- Botão de busca principal -->
+      <button class="btn-buscar" (click)="buscar()">
+        <svg class="icone-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        Buscar Música
+      </button>
+
+      <!-- Botão secundário -->
+      <button class="btn-secundario" (click)="router.navigate(['/escolha-categoria'])">
+        <svg class="icone-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        Pesquise por categorias
+      </button>
+    </div>
+
+    <!-- Dicas de busca -->
+    <div class="dicas-busca">
+      <p class="dica-texto">
+        Pesquise por título, artista ou trecho da letra
+      </p>
+    </div>
+  </div>
+
+  <!-- Efeito de fundo -->
+  <div class="efeito-fundo"></div>
+</div>

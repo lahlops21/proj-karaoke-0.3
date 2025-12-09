@@ -1,0 +1,90 @@
+<div class="container">
+  <!-- Botão voltar -->
+  <button class="btn-voltar" [routerLink]="['/']">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="m15 18-6-6 6-6"/>
+    </svg>
+    Voltar
+  </button>
+
+  <!-- Card de login -->
+  <div class="card">
+    <!-- Logo/Título -->
+    <div class="header">
+      <h2 class="titulo">Área Administrativa</h2>
+      <p class="subtitulo">Faça login para gerenciar o catálogo</p>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="error()" class="erro-message">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span>{{ error() }}</span>
+    </div>
+
+    <!-- Formulário -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <div class="input-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <input 
+            id="email" 
+            type="email" 
+            formControlName="email" 
+            placeholder="seu@email.com"
+            [class.input-erro]="form.controls.email.invalid && form.controls.email.touched"
+          />
+        </div>
+        <span class="mensagem-erro" *ngIf="form.controls.email.invalid && form.controls.email.touched">
+          Por favor, insira um e-mail válido
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <div class="input-wrapper">
+          <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <input 
+            id="senha" 
+            type="password" 
+            formControlName="senha" 
+            placeholder="Digite sua senha"
+            [class.input-erro]="form.controls.senha.invalid && form.controls.senha.touched"
+          />
+        </div>
+        <span class="mensagem-erro" *ngIf="form.controls.senha.invalid && form.controls.senha.touched">
+          A senha é obrigatória
+        </span>
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-entrar" 
+        [disabled]="form.invalid || loading()"
+        [class.loading]="loading()"
+      >
+        <span *ngIf="!loading()">Entrar</span>
+        <span *ngIf="loading()" class="loading-spinner"></span>
+      </button>
+    </form>
+
+    <!-- Link de cadastro -->
+    <div class="link-cadastro">
+      <p>Ainda não tem uma conta?</p>
+      <a [routerLink]="['/admin/cadastro']">Criar cadastro</a>
+    </div>
+  </div>
+
+  <!-- Efeito de fundo -->
+  <div class="efeito-fundo"></div>
+</div>

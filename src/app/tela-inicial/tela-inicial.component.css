@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Poppins:wght@400;500;600;700&display=swap');
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Link administrativo - mobile first */
+.admin-link {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: #74D2F0;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 20px;
+  transition: background 0.2s ease;
+  z-index: 100;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-link:active {
+  background: rgba(116, 210, 240, 0.15);
+}
+
+/* Conteúdo principal - mobile first */
+.conteudo-principal {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Logo e Título - mobile first */
+.logo-container {
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-titulo {
+  font-family: 'Fugaz One', cursive;
+  font-size: 52px;
+  margin: 0;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-shadow: 0 0 20px rgba(131, 7, 255, 0.4);
+}
+
+.letra {
+  display: block;
+  text-align: center;
+}
+
+.letra.roxo {
+  color: #8307FF;
+}
+
+.letra.rosa {
+  color: #EF33B3;
+}
+
+.subtitulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #b8b8b8;
+  margin-top: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Container de busca - mobile first */
+.busca-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.6s ease-out 0.2s backwards;
+}
+
+.busca-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(131, 7, 255, 0.3);
+  border-radius: 16px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+  min-height: 60px;
+}
+
+.busca-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #8307FF;
+  box-shadow: 0 4px 20px rgba(131, 7, 255, 0.3);
+}
+
+.icone-busca {
+  width: 24px;
+  height: 24px;
+  color: #8307FF;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.campo-busca {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 0;
+}
+
+.campo-busca::placeholder {
+  color: #8307FF;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+/* Botões - otimizados para toque mobile */
+.btn-buscar,
+.btn-secundario {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 18px 24px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.icone-btn {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.btn-buscar {
+  background: linear-gradient(135deg, #8307FF 0%, #EF33B3 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(131, 7, 255, 0.4);
+}
+
+.btn-buscar:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(131, 7, 255, 0.4);
+}
+
+.btn-secundario {
+  background: rgba(116, 210, 240, 0.12);
+  color: #74D2F0;
+  border: 2px solid rgba(116, 210, 240, 0.4);
+}
+
+.btn-secundario:active {
+  transform: scale(0.98);
+  background: rgba(116, 210, 240, 0.2);
+}
+
+/* Dicas de busca - mobile first */
+.dicas-busca {
+  animation: fadeIn 0.6s ease-out 0.4s backwards;
+}
+
+.dica-texto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #888888;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Efeito de fundo - simplificado para mobile */
+.efeito-fundo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, rgba(131, 7, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(239, 51, 179, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  animation: subtle-pulse 8s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Tablets - 768px+ */
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+  }
+
+  .conteudo-principal {
+    max-width: 600px;
+    gap: 40px;
+  }
+
+  .logo-titulo {
+    font-size: 68px;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .letra {
+    display: inline-block;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+    margin-top: 16px;
+  }
+
+  .busca-wrapper {
+    padding: 20px 24px;
+    min-height: 68px;
+  }
+
+  .campo-busca {
+    font-size: 18px;
+  }
+
+  .btn-buscar,
+  .btn-secundario {
+    font-size: 18px;
+    padding: 20px 32px;
+    min-height: 64px;
+  }
+
+  .icone-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  .admin-link {
+    top: 24px;
+    right: 24px;
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+
+  .admin-link:hover {
+    background: rgba(116, 210, 240, 0.1);
+  }
+
+  .btn-buscar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(131, 7, 255, 0.5);
+  }
+
+  .btn-secundario:hover {
+    background: rgba(116, 210, 240, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+/* Desktop - 1024px+ */
+@media (min-width: 1024px) {
+  .logo-titulo {
+    font-size: 84px;
+  }
+
+  .letra:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+
+  .conteudo-principal {
+    gap: 48px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    padding: 16px;
+  }
+
+  .conteudo-principal {
+    gap: 20px;
+  }
+
+  .logo-titulo {
+    font-size: 32px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .busca-wrapper {
+    min-height: 52px;
+    padding: 12px 16px;
+  }
+
+  .btn-buscar,
+  .btn-secundario {
+    min-height: 52px;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Ajuste para iPhones pequenos */
+@media (max-width: 375px) {
+  .logo-titulo {
+    font-size: 44px;
+  }
+
+  .subtitulo {
+    font-size: 15px;
+  }
+
+  .campo-busca {
+    font-size: 16px;
+  }
+
+  .btn-buscar,
+  .btn-secundario {
+    font-size: 16px;
+    padding: 16px 20px;
+    min-height: 56px;
+  }
+
+  .dica-item {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* Garantir que inputs não causem zoom no iOS */
+@supports (-webkit-touch-callout: none) {
+  .campo-busca {
+    font-size: 16px;
+  }
+}

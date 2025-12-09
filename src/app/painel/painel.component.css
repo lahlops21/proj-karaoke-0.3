@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Poppins:wght@400;500;600;700&display=swap');
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Botão logout no topo */
+/* REMOVIDO - não é mais usado */
+
+/* Card principal */
+.card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(131, 7, 255, 0.3);
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 8px 32px rgba(131, 7, 255, 0.2);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-admin {
+  font-family: 'Fugaz One', cursive;
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.letra {
+  display: inline-block;
+}
+
+.letra.roxo {
+  color: #8307FF;
+}
+
+.letra.rosa {
+  color: #EF33B3;
+}
+
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.subtitulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #b8b8b8;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Menu de opções */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(131, 7, 255, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  min-height: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(131, 7, 255, 0.1) 0%, rgba(239, 51, 179, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:active::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  border-color: rgba(131, 7, 255, 0.5);
+}
+
+/* Ícone do botão */
+.btn-icone {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-adicionar .btn-icone {
+  background: linear-gradient(135deg, #8307FF 0%, #EF33B3 100%);
+}
+
+.btn-gerenciar .btn-icone {
+  background: linear-gradient(135deg, #EF33B3 0%, #74D2F0 100%);
+}
+
+.btn-historico .btn-icone {
+  background: linear-gradient(135deg, #74D2F0 0%, #8307FF 100%);
+}
+
+.btn-icone svg {
+  width: 26px;
+  height: 26px;
+  color: #ffffff;
+}
+
+/* Conteúdo do botão */
+.btn-conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.btn-titulo {
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.btn-descricao {
+  font-size: 13px;
+  color: #b8b8b8;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Seta do botão */
+.btn-seta {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: #8307FF;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.btn:active .btn-seta {
+  transform: translateX(4px);
+}
+
+/* Botão Sair */
+.btn-sair {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+  min-height: 56px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-sair svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.btn-sair:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+/* Rodapé */
+.rodape {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.rodape-texto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Efeito de fundo */
+.efeito-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, rgba(131, 7, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(239, 51, 179, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+  animation: subtle-pulse 8s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+/* Tablets - 768px+ */
+@media (min-width: 768px) {
+  .card {
+    padding: 40px 36px;
+    max-width: 680px;
+  }
+
+  .logo-admin {
+    font-size: 40px;
+  }
+
+  .titulo {
+    font-size: 24px;
+  }
+
+  .subtitulo {
+    font-size: 15px;
+  }
+
+
+  .menu {
+    gap: 18px;
+  }
+
+  .btn {
+    padding: 24px;
+    min-height: 100px;
+  }
+
+  .btn:hover {
+    border-color: rgba(131, 7, 255, 0.5);
+    transform: translateX(4px);
+  }
+
+  .btn:hover::before {
+    opacity: 1;
+  }
+
+  .btn:hover .btn-seta {
+    transform: translateX(4px);
+  }
+
+  .btn-icone {
+    width: 56px;
+    height: 56px;
+  }
+
+  .btn-icone svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn-titulo {
+    font-size: 18px;
+  }
+
+  .btn-descricao {
+    font-size: 14px;
+  }
+
+  .btn-sair:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(239, 68, 68, 0.5);
+  }
+}
+
+/* Desktop - 1024px+ */
+@media (min-width: 1024px) {
+  .card {
+    max-width: 720px;
+  }
+
+  .logo-admin {
+    font-size: 48px;
+  }
+
+  .titulo {
+    font-size: 26px;
+  }
+
+  .btn {
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    box-shadow: 0 8px 24px rgba(131, 7, 255, 0.3);
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .logo-admin {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 16px;
+    min-height: 70px;
+  }
+
+  .btn-icone {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-icone svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .rodape {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 375px) {
+  .logo-admin {
+    font-size: 28px;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .btn {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .btn-titulo {
+    font-size: 16px;
+  }
+
+  .btn-descricao {
+    font-size: 12px;
+  }
+}
